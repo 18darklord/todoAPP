@@ -10,7 +10,8 @@
 	<div class="itemContainer">
 		<div class="itemBody">
 			{{ itemObjectProp.name }}
-			<button @click="eventHandler">delete item</button>
+			
+			<div @click="eventHandler" class="cross">x</div>
 			<div></div>
 		</div>
 	</div>
@@ -34,10 +35,9 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .itemContainer {
-	height: 50px;
-	width: 100px;
+	height: 30px;
+	width: 170px;
 	border: 2px;
-	overflow: scroll;
 	border-style: dotted;
 	border-radius: 5px;
 	padding: 5px;
@@ -58,5 +58,9 @@ export default {
 	right: 0%;
 	padding: 12px 16px;*/
 	transform: translate(0%, -50%);
+}
+.cross{
+	float: right;
+	color: maroon;
 }
 </style>

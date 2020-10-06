@@ -1,7 +1,11 @@
 <template>
     <div class="listContainer">
         <div class="listHeader">
-            <div class="listName">{{ listObjectProp.name }}</div>
+            <div class="listName">
+                {{ listObjectProp.name }}
+                <div class="cross" @click="deleteList(listObjectProp)">x</div>
+            </div>
+            
         </div>
         <div class="listBody">
             <div>
@@ -71,6 +75,10 @@ export default {
             }
             console.log("this log is from listComponent || delete item havinng name and id",event.name,"&",event.id);
             this.$emit('deleteItemEvente',obj);
+        },
+        deleteList:function(listObject){
+            console.log("delete list having name and id",listObject.name," and ",listObject.id)
+
         }
     }
 };
@@ -78,11 +86,38 @@ export default {
 <style>
 .listContainer {
     height: 200px;
-    width: 200px;
+    width: 207px;
+    border-style: solid;
     border: 4px;
     overflow: scroll;
+    /*position: absolute;*/
+    border-color: darkgrey;
+    border-radius: 5px;
+    /*background-color: white;*/
+    padding: 8;
+    float: left;
+}
+.listBody{
+}
+.listHeader {
+    border: 2px;
     border-style: solid;
-    border-radius: 10px;
-    padding: 8px;
+    border-radius: 2px;
+    height: 20px;
+    text-align: left;
+    background-color: saddlebrown;
+    /*border-radius: 10px;*/
+}
+.listName {
+    /*text-align: left;*/
+}
+.cross{
+    float: right;
+    cursor: pointer;
+    color:  maroon;
+
+}
+.cross.hover{
+    color: red;
 }
 </style>
